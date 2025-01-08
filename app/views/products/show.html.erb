@@ -1,5 +1,80 @@
-<h1><%= @product.name %></h1>
+<h1 class="centered-title"><%= @product.name %></h1>
+<%= image_tag @product.featured_image if @product.featured_image.attached? %>
 
-<%= link_to "Back", products_path %>
-<%= link_to "Edit", edit_product_path(@product) %>
-<%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+
+<div class="button-group">
+  <%= link_to "Back", products_path, class: "button back-button" %>
+  <%= link_to "Edit", edit_product_path(@product), class: "button edit-button" %>
+  <%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "button delete-button" %>
+</div>
+
+<style>
+  /* Định dạng tiêu đề */
+  .centered-title {
+    text-align: center;
+    color: #ffffff;
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  /* Định dạng nhóm nút */
+  .button-group {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  /* Định dạng nút chung */
+  .button {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border: 2px solid #0056b3;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  /* Nút Back */
+  .back-button {
+    background-color: #6c757d;
+    border-color: #5a6268;
+  }
+
+  .back-button:hover {
+    background-color: #5a6268;
+    border-color: #4e555b;
+  }
+
+  /* Nút Edit */
+  .edit-button {
+    background-color: #28a745;
+    border-color: #218838;
+  }
+
+  .edit-button:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+
+  /* Nút Delete */
+  .delete-button {
+    background-color: #dc3545;
+    border-color: #c82333;
+  }
+
+  .delete-button:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+</style>
+

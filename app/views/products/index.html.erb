@@ -1,11 +1,65 @@
-<h1>Products</h1>
+<h1 class="centered-title">Products</h1>
 
-<%= link_to "New product", new_product_path %>
+<%= link_to "New product", new_product_path, class: "button" %>
 
 <div id="products">
   <% @products.each do |product| %>
-    <div>
+    <div class="product-card">
       <%= link_to product.name, product %>
     </div>
   <% end %>
 </div>
+
+<style>
+  /* Định dạng tiêu đề */
+  .centered-title {
+    text-align: center;
+    color: #ffffff;
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  /* Định dạng nút "New product" */
+  .button {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border: 2px solid #0056b3;
+    border-radius: 5px;
+    margin: 10px auto;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+    border-color: #003f7f;
+    cursor: pointer;
+  }
+
+  /* Định dạng sản phẩm */
+  .product-card {
+    background-color: #f9f9f9; /* Màu nền cho sản phẩm */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  .product-card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    background-color: #e6f7ff; /* Đổi màu nền khi rê chuột */
+  }
+
+  #products {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+</style>

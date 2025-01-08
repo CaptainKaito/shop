@@ -1,4 +1,62 @@
-<h1>New product</h1>
+<h1 class="centered-title">New Product</h1>
 
-<%= render "form", product: @product %>
-<%= link_to "Cancel", products_path %>
+<div class="form-container">
+  <%= render "form", product: @product %>
+  
+  <%= link_to "Cancel", products_path, class: "button cancel-button" %>
+</div>
+
+<style>
+  /* Định dạng tiêu đề */
+  .centered-title {
+    text-align: center;
+    color: #ffffff;
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  /* Định dạng nút */
+  .button {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border: 2px solid #0056b3;
+    border-radius: 5px;
+    margin: 10px 5px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+    border-color: #003f7f;
+    cursor: pointer;
+  }
+
+  /* Định dạng nút Cancel */
+  .cancel-button {
+    background-color: #FF4D4D;
+    border-color: #cc0000;
+  }
+
+  .cancel-button:hover {
+    background-color: #cc0000;
+    border-color: #990000;
+  }
+
+  /* Định dạng form container */
+  .form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
