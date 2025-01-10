@@ -2,18 +2,25 @@
 <%= link_to "New product", new_product_path if authenticated? %>
 <%= link_to "Login", new_session_path unless authenticated? %>
 
-
-<%= link_to "New product", new_product_path, class: "button" %>
+<%= link_to "New product", new_product_path, class: "button primary" %>
 
 <div id="products">
   <% @products.each do |product| %>
     <div class="product-card">
-      <%= link_to product.name, product %>
+      <%= link_to product.name, product, class: "button secondary" %>
     </div>
   <% end %>
 </div>
 
 <style>
+  /* Định dạng nền cho toàn bộ trang */
+  body {
+    background-color: #fff9e6; /* Màu vàng nhạt */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
   /* Định dạng tiêu đề */
   .centered-title {
     text-align: center;
@@ -23,25 +30,78 @@
     border-radius: 5px;
   }
 
-  /* Định dạng nút "New product" */
+  /* Định dạng chung cho nút */
   .button {
     display: inline-block;
     text-align: center;
     padding: 10px 20px;
-    color: white;
-    background-color: #007BFF;
     text-decoration: none;
-    border: 2px solid #0056b3;
+    border: 2px solid transparent;
     border-radius: 5px;
-    margin: 10px auto;
     font-size: 16px;
     font-weight: bold;
+    margin: 5px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    cursor: pointer;
   }
 
   .button:hover {
+    opacity: 0.9;
+  }
+
+  /* Định dạng nút chính (primary) */
+  .button.primary {
+    background-color: #007BFF;
+    color: white;
+    border-color: #0056b3;
+  }
+
+  .button.primary:hover {
     background-color: #0056b3;
-    border-color: #003f7f;
-    cursor: pointer;
+  }
+
+  /* Định dạng nút phụ (secondary) */
+  .button.secondary {
+    background-color: #6c757d;
+    color: white;
+    border-color: #545b62;
+  }
+
+  .button.secondary:hover {
+    background-color: #545b62;
+  }
+
+  /* Định dạng nút thành công (success) */
+  .button.success {
+    background-color: #28a745;
+    color: white;
+    border-color: #218838;
+  }
+
+  .button.success:hover {
+    background-color: #218838;
+  }
+
+  /* Định dạng nút cảnh báo (warning) */
+  .button.warning {
+    background-color: #ffc107;
+    color: black;
+    border-color: #e0a800;
+  }
+
+  .button.warning:hover {
+    background-color: #e0a800;
+  }
+
+  /* Định dạng nút nguy hiểm (danger) */
+  .button.danger {
+    background-color: #dc3545;
+    color: white;
+    border-color: #bd2130;
+  }
+
+  .button.danger:hover {
+    background-color: #bd2130;
   }
 
   /* Định dạng sản phẩm */

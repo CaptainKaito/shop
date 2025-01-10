@@ -1,7 +1,44 @@
-<h1>Edit product</h1>
+<h1 class="edit-title">Edit Product</h1>
 
-<div style="max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: #ffffff;">
+<div class="edit-product-container">
   <%= render "form", product: @product %>
   
-  <%= link_to "Cancel", @product, style: "display: block; text-align: center; margin-top: 20px; color: #007bff; text-decoration: none; font-size: 1rem;" %>
+  <%= link_to "Cancel", @product, class: "cancel-link" %>
 </div>
+
+<style>
+  /* Định dạng tiêu đề */
+  .edit-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  /* Định dạng khung chỉnh sửa sản phẩm */
+  .edit-product-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Định dạng liên kết hủy */
+  .cancel-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .cancel-link:hover {
+    color: #0056b3;
+  }
+</style>
