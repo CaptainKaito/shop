@@ -18,10 +18,7 @@ class CreateUsers < ActiveRecord::Migration[8.0]
       add_column :users, :password_digest, :string, null: false
     end
 
-    # Thêm index cho cột email_address nếu chưa có
-    unless index_exists?(:users, :email_address)
-      add_index :users, :email_address, unique: true
-    end
+  
   end
 end
 
