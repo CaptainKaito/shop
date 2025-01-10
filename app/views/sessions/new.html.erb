@@ -1,0 +1,16 @@
+<%= tag.div(flash[:alert], style: "color: red; padding: 10px; margin: 10px 0; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; text-align: center; font-weight: bold;") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color: green; padding: 10px; margin: 10px 0; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 4px; text-align: center; font-weight: bold;") if flash[:notice] %>
+
+<div style="max-width: 400px; margin: 0 auto; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: #ffffff;">
+  <h2 style="text-align: center; color: #333;">Sign In</h2>
+
+  <%= form_with url: session_path, style: "display: flex; flex-direction: column; align-items: center;" do |form| %>
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], style: "width: 100%; padding: 12px; margin: 10px 0; border-radius: 4px; border: 1px solid #ccc; font-size: 1rem;" %>
+    
+    <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, style: "width: 100%; padding: 12px; margin: 10px 0; border-radius: 4px; border: 1px solid #ccc; font-size: 1rem;" %>
+
+    <%= form.submit "Sign in", style: "width: 100%; background-color: #007bff; color: white; border: none; padding: 12px; cursor: pointer; font-size: 1.1rem; border-radius: 4px; margin-top: 10px;" %>
+  <% end %>
+
+  <%= link_to "Forgot password?", new_password_path, style: "color: #007bff; text-decoration: none; font-size: 1rem; display: block; text-align: center; margin-top: 10px;" %>
+</div>

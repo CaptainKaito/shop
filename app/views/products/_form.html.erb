@@ -1,21 +1,20 @@
-<%= form_with model: product do |form| %>
-    <div>
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
+<%= form_with model: product, local: true do |form| %>
+  <div style="margin-bottom: 20px;">
+    <%= form.label :name, style: "font-size: 1.1rem; font-weight: bold;" %>
+    <%= form.text_field :name, style: "width: 100%; padding: 10px; margin-top: 8px; border-radius: 4px; border: 1px solid #ccc; font-size: 1rem;" %>
+  </div>
 
-    <div>
-     <%= form.label :description, style: "display: block" %>
-     <%= form.rich_text_area :description %>
-    </div>
-    
-    <div>
-     <%= form.label :featured_image, style: "display: block" %>
-     <%= form.file_field :featured_image, accept: "image/*" %>
-    </div>
+  <div style="margin-bottom: 20px;">
+    <%= form.label :description, style: "font-size: 1.1rem; font-weight: bold; display: block; margin-bottom: 8px;" %>
+    <%= form.rich_text_area :description, style: "width: 100%; padding: 12px; margin-top: 8px; border-radius: 4px; border: 1px solid #ccc; font-size: 1rem; height: 150px;" %>
+  </div>
 
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
-  
+  <div style="margin-bottom: 20px;">
+    <%= form.label :featured_image, style: "font-size: 1.1rem; font-weight: bold; display: block; margin-bottom: 8px;" %>
+    <%= form.file_field :featured_image, accept: "image/*", style: "width: 100%; padding: 10px; margin-top: 8px; border-radius: 4px; border: 1px solid #ccc;" %>
+  </div>
+
+  <div>
+    <%= form.submit "Save Product", style: "background-color: #007bff; color: white; padding: 12px 20px; font-size: 1rem; cursor: pointer; border-radius: 4px; border: none; width: 100%; margin-top: 20px;" %>
+  </div>
+<% end %>
